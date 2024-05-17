@@ -17,17 +17,9 @@ Funzionalità Principali del Sito Web:
         Visualizzazione della propria libreria con opzioni di ordinamento e filtro.
 
     Ricerca e Esplorazione:
-        Ricerca di libri per titolo, autore, genere, o altre informazioni.
+        Ricerca di libri per titolo, autore, genere, ISBN o altre informazioni.
         Esplorazione della vasta gamma di libri disponibili attraverso categorie e tag.
         Visualizzazione di dettagli aggiuntivi sui libri, come recensioni degli utenti, valutazioni, sinossi, etc.
-
-    Interazione Sociale:
-        Possibilità di lasciare recensioni e valutazioni sui libri.
-        Commenti e discussioni tra gli utenti sulle opere.
-
-    Notifiche e Comunicazioni:
-        Notifiche per aggiornamenti sui libri aggiunti, recensioni ricevute, etc.
-        Messaggistica interna per la comunicazione tra gli utenti.
 
     Integrazione Esterna:
         Possibilità di collegarsi a fonti esterne per ottenere informazioni sui libri, come API di librerie online o database letterari.
