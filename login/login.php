@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Capolavoro - login</title>
+    <title>C. - Login</title>
     <link rel="stylesheet" type="text/css" href="slide navbar style.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
     </head>

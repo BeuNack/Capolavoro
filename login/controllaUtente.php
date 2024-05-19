@@ -14,15 +14,6 @@
         $email = htmlspecialchars($_POST["email"]);
         $psw = password_hash($_POST["password"], PASSWORD_DEFAULT); // Usa password_hash per una maggiore sicurezza
     
-        // Visualizzazione dei dati sanificati (per debug, rimuovere in produzione)
-        echo "nome: " . $nome;
-        echo "<br>";
-        echo "cognome: " . $cognome;
-        echo "<br>";
-        echo "email: " . $email;
-        echo "<br>";
-        echo "password: " . $_POST["password"]; // Mostrare la password in chiaro non è una buona pratica; per debug solo
-    
         // Connessione al DB
         try {
             $conn = new mysqli($dati_conn["mysql_host"], $dati_conn["mysql_user"], $dati_conn["mysql_password"], $dati_conn["mysql_db"]);
@@ -56,7 +47,7 @@
                     $_SESSION["nome"] = $nome;
                     $_SESSION["cognome"] = $cognome;
                     $_SESSION["email"] = $email;
-                    header("Location: ../index.php");
+                    header("Location: ../main/index.php");
                     exit();
                 }
             }
@@ -71,10 +62,7 @@
 
     // Se reg = n sta accedendo
 if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_GET["reg"]) && $_GET["reg"] == "n") {
-    echo "email: " . htmlspecialchars($_POST["email"]);
-    echo "<br>";
-    echo "password: " . htmlspecialchars($_POST["password"]);
-
+    
     // Recupero i dati
     $email = htmlspecialchars($_POST["email"]);
     $psw = $_POST["password"];
@@ -103,8 +91,8 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_GET["reg"]) &&
                 $_SESSION["nome"] = $row["nome"];
                 $_SESSION["cognome"] = $row["cognome"];
                 $_SESSION["email"] = $email;
-                //header("Location: ../index.php");
-                //exit();
+                header("Location: ../main/index.php");
+                exit();
             } else {
                 errorRedirect("Password errata", "login/login.php", "Torna al login");
             }
