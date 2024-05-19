@@ -73,9 +73,10 @@
                 let bookItem = `
                     <div class="book-item">
                         <img src="${thumbnail}" alt="${title}">
-                        <h2>${title}</h2>
+                        <h2 class="title">${title}</h2>
                         <p><strong>Autore:</strong> ${authors}</p>
                         <p><strong>Prezzo:</strong> ${price}</p>
+                        <button class="add-to-library-button">Aggiungi alla Libreria</button>
                     </div>
                 `;
                 bookList.innerHTML += bookItem;

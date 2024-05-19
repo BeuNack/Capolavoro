@@ -30,7 +30,7 @@ button[type="submit"],
 #next-button {
     background-color: var(--tea-green);
     color: var(--space-cadet);
-    border: 2px solid black; /* Aggiunto bordo nero di 2px solid */
+    border: 2px solid black;
     border-radius: 20px;
     padding: 8px 16px;
     cursor: pointer;
@@ -43,27 +43,41 @@ button[type="submit"]:hover,
     background-color: #a3e3b8;
 }
 
+
 #book-list {
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
 }
 
 .book-item {
+    display: flex; /* Aggiunto display flex per allineare l'immagine e il contenuto */
+    align-items: center; /* Centrare verticalmente il contenuto */
     background-color: var(--tea-green);
     color: var(--space-cadet);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 10px auto; /* Imposta il margine superiore e inferiore su auto per centrare il contenuto */
     padding: 20px;
-    width: 300px;
+    max-width: 600px; /* Larghezza massima del contenitore */
 }
 
 .book-item img {
-    max-width: 100%;
+    max-width: 100px; /* Larghezza massima dell'immagine */
     height: auto;
     border-radius: 10px;
+    margin-right: 20px; /* Aggiunto margine destro per separare l'immagine dal testo */
+}
+
+.book-item h2 {
+    margin-top: 0; /* Rimuove il margine superiore predefinito per il titolo */
+    
+}
+
+
+.book-item-details {
+    flex-grow: 1; /* Espande il div per occupare lo spazio rimanente */
 }
 
 #pagination {
