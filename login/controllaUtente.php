@@ -1,7 +1,7 @@
 <?php
 
-    require("../config-function/config.php");
-    require("../config-function/function.php");
+    require_once("../config-function/config.php");
+    require_once("../config-function/function.php");
 
 
 
@@ -47,7 +47,7 @@
                     $_SESSION["nome"] = $nome;
                     $_SESSION["cognome"] = $cognome;
                     $_SESSION["email"] = $email;
-                    header("Location: ../main/index.php");
+                    header("Location: ../index.php");
                     exit();
                 }
             }
@@ -91,7 +91,8 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_GET["reg"]) &&
                 $_SESSION["nome"] = $row["nome"];
                 $_SESSION["cognome"] = $row["cognome"];
                 $_SESSION["email"] = $email;
-                header("Location: ../main/index.php");
+                var_dump($_SESSION);
+                header("Location: ../index.php");
                 exit();
             } else {
                 errorRedirect("Password errata", "login/login.php", "Torna al login");

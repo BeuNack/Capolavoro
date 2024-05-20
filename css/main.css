@@ -13,16 +13,44 @@ h1 {
 
 form {
     text-align: center;
-    margin-top: 20px;
+    margin-top: -10px;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Distribuire gli elementi su tutta la larghezza */
+    align-items: center; /* Centrare verticalmente gli elementi */
+    padding: 10px 20px;
+}
+
+#search-form {
+    flex: 1; /* Far espandere il form quanto possibile */
+    display: flex; /* Usare flex per allineare gli elementi */
+    align-items: center; /* Centrare verticalmente gli input e i pulsanti */
+    justify-content: center;
+}
+
+.user {
+    display: flex; /* Usare flex per allineare gli elementi */
+    align-items: center; /* Centrare verticalmente gli elementi */
+    margin-left: 20px; /* Aggiungere margine sinistro per separare il div dell'utente dal form */
+}
+
+#u-bookshelf {
+    margin-left: 10px; /* Aggiungere margine sinistro per separare l'icona del libroshelf dall'icona dell'utente */
+    width: 32px;
+    height: 32px;
+}
+
 
 #search-input {
     width: 300px;
     padding: 8px;
     border: none;
-    border-radius: 20px;
+    background-color: antiquewhite;
     outline: none;
-    border:1px solid black;
+    border: 1px solid black;
+    margin-right: 10px;
 }
 
 button[type="submit"],
@@ -40,9 +68,8 @@ button[type="submit"],
 button[type="submit"]:hover,
 #prev-button:hover,
 #next-button:hover {
-    background-color: #a3e3b8;
+    background-color: antiquewhite;
 }
-
 
 #book-list {
     display: grid;
@@ -52,35 +79,66 @@ button[type="submit"]:hover,
 }
 
 .book-item {
-    display: flex; /* Aggiunto display flex per allineare l'immagine e il contenuto */
-    align-items: center; /* Centrare verticalmente il contenuto */
+    display: flex;
+    flex-direction: row; /* Disporre il contenuto in una riga */
+    align-items: flex-start; /* Allineare gli elementi all'inizio della riga */
     background-color: var(--tea-green);
     color: var(--space-cadet);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px auto; /* Imposta il margine superiore e inferiore su auto per centrare il contenuto */
+    margin: 10px auto;
     padding: 20px;
-    max-width: 600px; /* Larghezza massima del contenitore */
+    width: 800px;
+    text-align: left; /* Allinea il testo a sinistra */
 }
 
 .book-item img {
-    max-width: 100px; /* Larghezza massima dell'immagine */
+    max-width: 100px;
     height: auto;
     border-radius: 10px;
-    margin-right: 20px; /* Aggiunto margine destro per separare l'immagine dal testo */
+    margin-right: 20px; /* Margine destro per separare l'immagine dal testo */
+}
+
+.book-item-details {
+    display: flex;
+    flex-direction: column; /* Disporre le informazioni in una colonna */
 }
 
 .book-item h2 {
-    margin-top: 0; /* Rimuove il margine superiore predefinito per il titolo */
-    
+    margin: 0 0 10px; /* Margine inferiore per separare il titolo dagli altri elementi */
 }
 
+.book-item .book-info {
+    display: flex;
+    flex-direction: column; /* Disporre le informazioni in una colonna */
+    gap: 5px; /* Spazio tra gli elementi */
+}
 
-.book-item-details {
-    flex-grow: 1; /* Espande il div per occupare lo spazio rimanente */
+.book-item .book-info p {
+    margin: 5px 0; /* Margine verticale per gli elementi di testo */
+}
+
+.book-item .add-to-library-button {
+    background-color: var(--tea-green);
+    color: var(--space-cadet);
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    outline: none;
+    position:relative;
+    left:450px;
+    max-width: 200px;
+    margin-top: 10px; /* Margine superiore per separare il bottone dagli altri elementi */
+}
+
+.book-item .add-to-library-button:hover {
+    background-color: antiquewhite;
 }
 
 #pagination {
     text-align: center;
     margin-top: 20px;
 }
+
+
