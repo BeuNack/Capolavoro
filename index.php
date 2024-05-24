@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>Cerca Libri</title>
 </head>
@@ -66,7 +67,14 @@
         let maxResults = 20;
 
         function searchBooks(query) {
-            let url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&startIndex=${startIndex}&maxResults=${maxResults}`;
+            let isISBN = /^[0-9]{10}([0-9]{3})?$/.test(query); // Verifica se la query è un ISBN di 10 o 13 cifre
+            let url;
+
+            if (isISBN) {
+                url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${encodeURIComponent(query)}&startIndex=${startIndex}&maxResults=${maxResults}`;
+            } else {
+                url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&startIndex=${startIndex}&maxResults=${maxResults}`;
+            }
 
             fetch(url)
                 .then(response => response.json())
@@ -75,12 +83,14 @@
                     if (data.items.length > 0) {
                         document.getElementById("pagination").style.display = "block";
                         updatePageCounter(data);
+                        console.log(data);
                     } else {
                         document.getElementById("pagination").style.display = "none";
                     }
                 })
                 .catch(error => console.error("Errore nella ricerca:", error));
         }
+
 
         function displayBooks(books) {
             let bookList = document.getElementById("book-list");
@@ -92,6 +102,7 @@
             }
 
             books.forEach(book => {
+                let volume_id = book.id; // Utilizza l'ID del volume di Google Books
                 let title = book.volumeInfo.title;
                 let authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Sconosciuto";
                 let publisher = book.volumeInfo.publisher ? book.volumeInfo.publisher : "Sconosciuto";
@@ -102,8 +113,18 @@
                     price = `${book.saleInfo.listPrice.amount} ${book.saleInfo.listPrice.currencyCode}`;
                 }
 
+                // Estrarre l'ISBN
+                let isbn = "N/A";
+                if (book.volumeInfo.industryIdentifiers) {
+                    book.volumeInfo.industryIdentifiers.forEach(identifier => {
+                        if (identifier.type === "ISBN_13") {
+                            isbn = identifier.identifier;
+                        }
+                    });
+                }
+
                 let bookItem = `
-                    <div class="book-item">
+                    <div class="book-item" data-volume-id="${volume_id}" data-isbn="${isbn}">
                         <img src="${thumbnail}" alt="${title}">
                         <div class="book-item-details">
                             <h2 class="title">${title}</h2>
@@ -111,6 +132,7 @@
                                 <p><strong>Autore:</strong> ${authors}</p>
                                 <p><strong>Editore:</strong> ${publisher}</p>
                                 <p><strong>Prezzo:</strong> ${price}</p>
+                                <p><strong>ISBN:</strong> ${isbn}</p>
                             </div>
                             <button class="add-to-library-button" onclick="addToLibrary(this)">Aggiungi alla Libreria</button>
                         </div>
@@ -119,6 +141,7 @@
                 bookList.innerHTML += bookItem;
             });
         }
+
 
         function updatePageCounter(data) {
             let pageCounter = document.getElementById("page-counter");
@@ -143,6 +166,44 @@
             searchBooks(searchQuery);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        function addToLibrary(button) {
+            let bookItem = button.closest(".book-item");
+            let volume_id = bookItem.getAttribute("data-volume-id"); // Utilizza l'ID del volume di Google Books
+            let isbn = bookItem.getAttribute("data-isbn"); // Assicurati di avere un attributo data-isbn nel div del libro
+            let title = bookItem.querySelector(".title").textContent;
+            let authors = bookItem.querySelector(".book-info").children[0].textContent.split(": ")[1];
+            let publisher = bookItem.querySelector(".book-info").children[1].textContent.split(": ")[1];
+            let price = bookItem.querySelector(".book-info").children[2].textContent.split(": ")[1];
+            let url = "../libreria.php";
+
+            let bookData = {
+                volume_id: volume_id,
+                isbn: isbn,
+                title: title,
+                authors: authors,
+                publisher: publisher,
+                price: price,
+                url : url
+            };
+
+            $.post("action/aggiungiLibro.php", bookData)
+                .done(function(response) {
+                    // Handle response from server, if needed
+                    console.log("Response:", response);
+                    // Naviga verso un'altra pagina
+                    window.location.href = "action/aggiungiLibro.php";
+
+                })
+                .fail(function(error) {
+                    // Handle error, if any
+                    console.error("Error:", error);
+                });
+
+                    }
+
+
+
 
     </script>
 </body>
