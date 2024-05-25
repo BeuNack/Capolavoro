@@ -1,0 +1,53 @@
+/* Stili comuni della pagina */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2f4f4f; /* Verde scuro */
+}
+
+.error-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Trasparenza per sfondo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #000; /* Bianco */
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #daa520; /* Oro */
+    color: #ffffff; /* Bianco */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #e6b800; /* Oro più chiaro */
+}
+
+a {
+    text-decoration: none;
+}
