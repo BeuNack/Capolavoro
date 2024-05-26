@@ -40,7 +40,7 @@
                 $stmt2->bind_param("ssss", $nome, $cognome, $email, $psw);
                 $stmt2->execute();
                 if(!$stmt2) {
-                    errorRedirect("Errore nella esecuzione", "errore.php", "Torna alla registrazione");
+                    errorRedirect("Errore nella esecuzione", "login/registrazione.php", "Torna alla registrazione");
                 } else {
                     // Inserimento riuscito, mando l'utente alla home
                     session_start();
@@ -56,7 +56,7 @@
             $stmt2->close();
             $conn->close(); // Chiusura della connessione
         } catch(mysqli_sql_exception $e) {
-            errorRedirect("Errore: " . htmlspecialchars($e->getMessage()), "errore.php", "Torna alla registrazione");
+            errorRedirect("Errore: " . htmlspecialchars($e->getMessage()), "login/registrazione.php", "Torna alla registrazione");
         }
     }
 
