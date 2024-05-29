@@ -15,7 +15,7 @@
 
         //Controllo se è loggato
         if(!isset($_SESSION["email"])){
-            header("Location: ../login/login.php");
+            errorRedirect("Non sei loggato " . htmlspecialchars($conn->connect_error), "login/login.php", "Accedi con il tuo account");
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

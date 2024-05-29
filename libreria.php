@@ -9,6 +9,24 @@
 </head>
 <body>
 
+    <div style="text-align: center; margin-top: 10px;">
+        <a href="index.php">
+            <button style="
+                background-color: #4CAF50; 
+                color: white; 
+                border: none; 
+                padding: 15px 32px; 
+                text-decoration: none; 
+                display: inline-block; 
+                font-size: 16px; 
+                margin: 4px 2px; 
+                cursor: pointer;
+                transition: background-color 0.3s ease;">
+                Torna alla Home
+            </button>
+        </a>
+    </div>
+
 
     <?php
         require_once("config-function/config.php");
@@ -24,7 +42,7 @@
 
         //Controllo se è loggato
         if(!isset($_SESSION["email"])){
-            header("Location: login/login.php");
+            errorRedirect("Non sei loggato " . htmlspecialchars($conn->connect_error), "login/login.php", "Accedi con il tuo account");
         }
 
          // Connessione al DB
@@ -61,7 +79,9 @@
                 }
             } else {
                 // L'utente non ha libri nella libreria
-                echo "<h2>NON HAI LIBRI NELLA TUA LIBRERIA</h2>";
+                echo "<div style='display: flex; justify-content: center; align-items: center;margin-top:20px'>
+                        <h2 style='margin: 0;'>NON HAI LIBRI NELLA TUA LIBRERIA</h2>
+                    </div>";
             }
 
             // Passa gli ISBN a JavaScript
@@ -78,23 +98,6 @@
 
     ?>
 
-    <div style="text-align: center; margin-top: 10px;">
-        <a href="index.php">
-            <button style="
-                background-color: #4CAF50; 
-                color: white; 
-                border: none; 
-                padding: 15px 32px; 
-                text-decoration: none; 
-                display: inline-block; 
-                font-size: 16px; 
-                margin: 4px 2px; 
-                cursor: pointer;
-                transition: background-color 0.3s ease;">
-                Torna alla Home
-            </button>
-        </a>
-    </div>
 
     <div id="book-list"></div>
 

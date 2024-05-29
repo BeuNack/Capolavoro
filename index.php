@@ -29,7 +29,7 @@
 
                 }else{
                     //Se la sessione non è attiva, lo mando alla pagina di registrazione
-                    echo "nah bro";
+                    echo "Accedi ->";
                     echo "<a href='login/login.php'>";
                 }
 

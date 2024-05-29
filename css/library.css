@@ -23,16 +23,6 @@ form {
     padding: 10px 20px;
 }
 
-#search-form {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 330px;
-    max-width: 1000px;
-}
-
 .user {
     display: flex;
     align-items: center;

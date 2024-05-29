@@ -33,6 +33,12 @@
       </div>
       <button type="text" class="submit">submit</button>
     </form>
+    
+    <div class="container">
+      <a href="../index.php">
+        <button class="indietro">Torna alla Home</button>
+      </a>
+    </div>
 </body>
 <script>
     // function setupTogglePassword(togglePasswordId, passwordId) {

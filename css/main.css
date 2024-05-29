@@ -1,47 +1,81 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--space-cadet);
-    color: var(--beaver);
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333333;
     margin: 0;
     padding: 0;
 }
-
+  
 h1 {
-    color: var(--tea-green);
-    text-align: center;
-}
-
-form {
-    text-align: center;
-    margin-top: -10px;
+  background-color: #2f4f4f; /* Verde scuro */
+  color: #ffffff; /* Bianco */
+  text-align: center;
+  padding: 20px;
+  margin: 0;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  background-color: #2f4f4f; /* Verde scuro */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff; /* Bianco */
 }
 
 #search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+#search-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+#search-form button {
+  background-color: #daa520; /* Oro */
+  color: #ffffff; /* Bianco */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#search-form button:hover {
+  background-color: #e6b800; /* Oro più chiaro */
 }
 
 .user {
-    display: flex; /* Usare flex per allineare gli elementi */
-    align-items: center; /* Centrare verticalmente gli elementi */
-    margin-left: 20px; /* Aggiungere margine sinistro per separare il div dell'utente dal form */
+  display: flex;
+  align-items: center;
+}
+
+.user a {
+  color: #ffffff; /* Bianco */
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
 #u-bookshelf {
-    margin-left: 10px; /* Aggiungere margine sinistro per separare l'icona del libroshelf dall'icona dell'utente */
+    margin-left: 10px;
     width: 32px;
     height: 32px;
 }
-
 
 #search-input {
     width: 300px;
