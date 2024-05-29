@@ -18,19 +18,16 @@ form {
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Distribuire gli elementi su tutta la larghezza */
-    align-items: center; /* Centrare verticalmente gli elementi */
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
 }
 
 #search-form {
-    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     position: relative;
-    left: 330px;
-    max-width: 1000px;
 }
 
 .user {

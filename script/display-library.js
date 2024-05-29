@@ -49,14 +49,8 @@ function updateBookList(volume_id, isbn, title, authors, publisher, thumbnail, p
                     <p><strong>Prezzo:</strong> ${price}</p>
                     <p class="data-isbn"><strong>ISBN:</strong> ${isbn}</p>
                 </div>
-                <form class="add-to-library-form" action="../action/rimuoviLibro.php" method="POST">
-                    <input type="hidden" name="volume_id" value="${volume_id}">
+                <form class="add-to-library-form" action="action/rimuoviLibro.php" method="POST">
                     <input type="hidden" name="isbn" value="${isbn}">
-                    <input type="hidden" name="title" value="${title}">
-                    <input type="hidden" name="authors" value="${authors}">
-                    <input type="hidden" name="publisher" value="${publisher}">
-                    <input type="hidden" name="price" value="${price}">
-                    <input type="hidden" name="thumbnail" value="${thumbnail}">
                     <button class="add-to-library-button" type="submit">Rimuovi dalla Libreria</button>
                 </form>
             </div>
